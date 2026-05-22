@@ -1,0 +1,6 @@
+{
+  "name": "Candélisse",
+  "description": "Premium confectionery of hand-crafted individual treasures and luxury collections designed to evoke the essence of pure indulgence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
