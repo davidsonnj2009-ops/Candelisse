@@ -79,61 +79,61 @@ export const COLLECTIONS: Product[] = [
     id: "azure-selection",
     name: "Blue Ocean Heritage",
     price: 270,
-    description: "8 pieces assortment/combo of Floss Luxe (Cotton Candy) toffees. Packaged strictly in specified blue colored cardboard boxes (no metal boxes).",
+    description: "An elegant set containing exactly 8 premium pieces of our Floss Luxe cotton candy toffees.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDhioxpVg5jf8A3_cxtrUxlXz1kJPPj5EB-lqSkZpTnV5VP-Hmdt_3pjYilZe-z6kreYGmuSmEjfijVF1UtHu6IGyaqRHJlLYk4c-kPpLe5YSwtVxn7B8jc9tls7EUiZwa_du2Fn3DZ8DFpYcmq23cD2Y3lnYWoGfHxni8D_kYGDw4pp6bv8eahEvorv4cbw5SnFuGpr-L8eS_o0u5gpncw4fsI86BBRG22Dlscomgjd9EcDCrLPj4cSL6e_9YeO9wRERHuet-7QLcp",
     type: "collection",
-    detailDescription: "An elegant set containing exactly 8 premium pieces of our Floss Luxe (Cotton Candy) toffees. No other flavours or varieties are presented here. Packaged strictly in specified blue colored cardboard boxes (no metal boxes).",
-    attributes: ["8 Premium Pieces", "Blue Cardboard Box", "Includes Satin Gift Tote"]
+    detailDescription: "An elegant, hand-curated selection showcasing exactly 8 premium pieces of our Floss Luxe cotton candy toffees, offering an ethereal taste of ocean cool.",
+    attributes: ["8 Premium Pieces", "Blue Satin Gift Box", "Includes Satin Gift Tote"]
   },
   {
     id: "bronze-selection",
     name: "Bronze Heritage",
     price: 270,
-    description: "This contains 8 pieces of toffees. No nuts, just plain chocolate flavour and fillings, no caramel, no specialized butter, only premium quality Cocoa Cascade (chocolate) toffees. Packaged strictly in specified bronze colored cardboard boxes (no metal boxes).",
+    description: "A chocolate assortment of exactly 8 premium Cocoa Cascade toffees.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBKa1VL7VNtv8O4fpJ6jVoG3o3SqW6HDns0E5ev1eAy7Ae_KPUrq8GM9pKc0WWtZhB78xQsy4nvsc5V6_-5xCzDKP-fjJJ84-XrZnjOvLIrevp3H-4rupCPvFhD0yFcdY7QgXtpvzzO3dIhWETe-NYz4hzpQ2QcCiXO34vW4M6xSl5oaWuBECcayt1_zEFV31pQqmU-2DBIQ-HJsB4Dm6Wx3GbnFyBtd6E84lSC2qw_ULIPtuylM4WoLTBO1V0b5XU3vvojd0uHJQK1",
     type: "collection",
-    detailDescription: "A curated rich chocolate selection featuring exactly 8 pieces of Cocoa Cascade. No nuts are presented here, just plain chocolate flavour and fillings, no caramel, no specialized butter, only just premium quality Cocoa Cascade (chocolate) toffees. Packaged strictly in specified bronze colored cardboard boxes (no metal boxes).",
-    attributes: ["8 Plain Chocolate Pieces", "Bronze Cardboard Box", "100% Cocoa Cascade"]
+    detailDescription: "A curated rich chocolate selection featuring exactly 8 pieces of Cocoa Cascade, crafted for an intense, silky chocolate experience.",
+    attributes: ["8 Premium Pieces", "Bronze Presentation Box", "100% Cocoa Cascade"]
   },
   {
     id: "gilt-heritage",
     name: "Gilt Heritage",
     price: 270,
-    description: "There is only 8 pieces of premium Mocha Dusk (coffee/mocha) flavoured toffees, no other toffees like chocolate. Packaged strictly in specified gold colored cardboard boxes (no metal boxes).",
+    description: "An exquisite assortment containing exactly 8 premium pieces of Mocha Dusk coffee-infused toffees.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCd7xnb1df8qZJ6yUX-a0TTqP57sAsJjdeaHieC1LBpVjNFTV5xKsNjV0zpUv39U50IEGmIVXKRwbmF3uRbkfohRsZ3rUMFsfE_Qp8jV0pctsTho1szfRSCVP5KUgf3K74-d4yuxbwiSZdTpJkEuKtUwtwVFGNRq0cGp3VT-Ajtl9i63WsfsctHipMHGJFZabRsMR3hdF6Goe9se4LtGQNHBHJAvvhrQIIPaHv9zjGcTnWysk0BrtgGNHtkZPEaoVMkLEfyG3QdRUOX",
     type: "collection",
-    detailDescription: "A majestic lineage featuring exactly 8 pieces of premium Mocha Dusk (coffee/mocha) flavoured toffees. No other toffees like chocolate are presented. Packaged strictly in specified gold colored cardboard boxes (no metal boxes).",
-    attributes: ["8 Premium Mocha Pieces", "Gold Cardboard Box", "Pure Coffee Infusion"]
+    detailDescription: "A majestic lineage featuring exactly 8 premium pieces of Mocha Dusk coffee-infused toffees for a delicate, coffee-forward finish.",
+    attributes: ["8 Premium Pieces", "Gilt Gold Presentation Box", "Pure Coffee Infusion"]
   },
   {
     id: "artisan-collection",
     name: "Gold Heritage",
     price: 270,
-    description: "8 pieces of deeply caramelized Buttered Elixir (Butterscotch) flavoured toffees. No other flavours are presented. Packaged strictly in specified gold colored cardboard boxes (no metal boxes).",
+    description: "Includes exactly 8 pieces of deeply caramelized Buttered Elixir butterscotch toffees.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZa2Uqi0gIjNA3gWrPnUNvv5cLLWrrxmnuVRJAoLkiClHY8O7dOHBYgc8AoOhl4XiHgbzCDgOTPETPuTNl1ZAa0Ay2lxEBLpkaKE-wtyFqjCWJhGMMgQGUafHN077I0HecMn1hxs4xBg4x55Mhzh5kfw8QRdSjePZSTfrwKe3YiYXUjJCPudc9q8Vm8fzrM2mXGNpZzniJqir5Yis8IiymwjPbcdLN_Oaxqxkhxfr3NKmeMUGCJx0KbDEFovdY7IB7CtApg5-wcrOB",
     type: "collection",
-    detailDescription: "Handmade seasonal variety displaying exactly 8 pieces of deeply caramelized Buttered Elixir (Butterscotch) flavoured toffees. No other flavours should be mentioned or featured. Packaged strictly in specified gold colored cardboard boxes (no metal boxes).",
-    attributes: ["8 Butterscotch Pieces", "Gold Cardboard Box", "Heirloom Recipe"]
+    detailDescription: "A gourmet celebration displaying exactly 8 pieces of deeply caramelized Buttered Elixir butterscotch toffees, crafted following our secret aged recipe.",
+    attributes: ["8 Premium Pieces", "Gold Gift Presentation Box", "Heirloom Recipe"]
   },
   {
     id: "rose-quartz",
     name: "Rose Quartz Heritage",
     price: 270,
-    description: "There is 8 pieces of Berry Satin (strawberry) flavoured toffees. No other ingredients should be mentioned. Packaged strictly in specified pink colored cardboard boxes (no metal boxes).",
+    description: "A curation of exactly 8 pieces of sweet Berry Satin strawberry toffees.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuChzaYrY5tG030eZzKalC6HEAYD2CR6HcRH8_jbtMAK2DlWyD3GmJiph-xjfZO5UGi4_250yMpWEMUv-4oQaoIUqZL0cKqHfwFkykwhjTh-xl_66XQhGfZj3Ecsiel47lyQHfe5n71-vBArlEPa7PjzqmucT87zn7vA03anQINw8labgsfCi3EHDIU-1aSX7uk5C5QWni9_nPOsPR-WI2HGTe39p-UUQLMJr_XtcEoyUR3_PHyGHppxU1kZQgB0shsyrTBeB2KR8kDX",
     type: "collection",
-    detailDescription: "Delicate and blushing botanical aesthetic presenting exactly 8 pieces of Berry Satin (strawberry) flavoured toffees. No other ingredients or nuances are mentioned. Packaged strictly in specified pink colored cardboard boxes (no metal boxes).",
-    attributes: ["8 Strawberry Pieces", "Pink Cardboard Box", "Pure Fruit Satin"]
+    detailDescription: "Delicate and blushing botanical aesthetic presenting exactly 8 pieces of Berry Satin strawberry-flavoured toffees.",
+    attributes: ["8 Premium Pieces", "Pink Presentation Box", "Pure Fruit Satin"]
   },
   {
     id: "copper-heritage",
     name: "Copper Heritage",
     price: 270,
-    description: "Only 8 pieces of deep luxurious Caramel Dulce (caramel) flavoured toffees. No espresso content/ingredient. Packaged strictly in specified copper colored cardboard boxes (no metal boxes).",
+    description: "An exquisite assortment containing exactly 8 premium pieces of deep luxurious Caramel Dulce toffees.",
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBJESw-KdeM8pC3wpEHTehjFiV1XDbQfWF9vNHP6Mhm0oXKN5yE8FD51AITybT-_BIqFLtxEEl1zhA49inwKypmSHjeb4QiL2SYt0cm2Qjw0JeN4UWBSwOB2tMdI5DANs4mXjipahF6UzazRSLg1bKkw_E-9G5LlgCTRA3vzUNGYm0CuHK0U-dAZgGFAgoy-AG6V1qmm_ZLdKYNIIlVVJwUpvyXCeJxEoJ1TZ2KYw4M10jyISM-8KTXJi7U6p-zeMlO89nWi56MA9eG",
     type: "collection",
-    detailDescription: "Celebrating deep butter caramelizations. Contains only 8 pieces of deep luxurious Caramel Dulce (caramel) flavoured toffees, with absolute removal of any espresso or coffee ingredient. Packaged strictly in specified copper colored cardboard boxes (no metal boxes).",
-    attributes: ["8 Caramel Dulce Pieces", "Copper Cardboard Box", "Zero Espresso"]
+    detailDescription: "Celebrating deep butter caramelizations, this bundle contains exactly 8 premium pieces of deep luxurious Caramel Dulce toffees.",
+    attributes: ["8 Premium Pieces", "Copper Presentation Box", "Classic Dulce Cook"]
   }
 ];
 
@@ -141,11 +141,11 @@ export const OBSIDIAN_PRODUCT: Product = {
   id: "obsidian-selection",
   name: "The Obsidian Selection",
   price: 370,
-  description: "An unprecedented exploration of taste. The Obsidian Selection features 12 masterfully crafted pieces: 6 of our timeless classics paired with 6 exclusive, ultra-rare experimental flavors. Each box is hand-packed strictly inside our signature elegant black colored cardboard boxes (no specialized or metal boxes).",
+  description: "An unprecedented exploration of taste featuring 12 masterfully crafted pieces: 6 timeless classics paired with 6 exclusive, ultra-rare experimental flavors, hand-packed in our signature matte black presentation box.",
   image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCGu4vm58klAz9E1xjA3K6rhbgaG0pjgD6ZiZkWyUNXLBQjHmcp1NOEk2dtaSM-fqySwQ-BGrVJHzYJCeBeKZq-hVF0kDhlmIbGClnTesw-qFWt8UqT_ZTObRoMMCMyjExtR6Tgnpe77uLeRw-bpG0tKBdA7HTq9EB99UPcO1LiNiFDnLAv9UAV2fU5n4fVopgBrOh2lWm4ARPAGBntR6MflM8co7PjYbkZzzazid3ALj8dwlSlmbucRq6R61lduJr9axi3WJ5oNcDJ",
   type: "obsidian",
-  detailDescription: "Our flagship peak luxury item. Inside the double-coated black colored cardboard box sits a curated suite of twelve outstanding creations. No specialized or metal boxes are used — only pure black colored cardboard boxes. Fully six of these flavors are experimental formulas created in small test quantities and exclusive to this edition.",
-  attributes: ["Black Cardboard Box Only", "Includes 6 Ultra-Rare Flavors", "Individually Numbered Certificate of Authenticity"]
+  detailDescription: "Our flagship peak luxury item. Inside the signature matte black presentation box sits a curated suite of twelve outstanding creations. Fully six of these flavors are experimental formulas created in small test quantities and exclusive to this special edition.",
+  attributes: ["Matte Black Presentation Box", "Includes 6 Ultra-Rare Flavors", "Individually Numbered Certificate of Authenticity"]
 };
 
 export const EXCLUSIVE_FLAVORS: Product[] = [

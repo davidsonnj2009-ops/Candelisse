@@ -84,6 +84,8 @@ export default function App() {
   ]);
   const [feedbackInput, setFeedbackInput] = useState({ name: "", email: "", message: "" });
   const [feedbackSuccess, setFeedbackSuccess] = useState(false);
+  const [commentInput, setCommentInput] = useState({ name: "", message: "" });
+  const [commentSuccess, setCommentSuccess] = useState(false);
 
   // Sticky Navbar State
   const [isNavbarGlass, setIsNavbarGlass] = useState(false);
@@ -265,24 +267,13 @@ export default function App() {
 
   const checkoutCartItemCount = cart.reduce((acc, curr) => acc + curr.quantity, 0);
 
-  // Form handle submit
+  // Form handle submit (Feedback/Complaints sends direct to Gmail via mailto)
   const handleFeedbackSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!feedbackInput.name || !feedbackInput.email || !feedbackInput.message) return;
 
-    const newFeedback: guestFeedback = {
-      id: "feed-" + Date.now(),
-      name: feedbackInput.name,
-      email: feedbackInput.email,
-      message: feedbackInput.message,
-      createdAt: "Just now",
-      likes: 0
-    };
-
-    setFeedbacks([newFeedback, ...feedbacks]);
-
     // Send email to davidsonnj2009@gmail.com using client mailto redirection
-    const subject = `Candélisse Website Feedback from ${feedbackInput.name}`;
+    const subject = `Candélisse Website Feedback/Complaint from ${feedbackInput.name}`;
     const body = `Dear G. Davidson Nathaniel Joshua / Candélisse Team,\n\nI am submitting the following feedback / complaint regarding Candélisse.\n\nFrom: ${feedbackInput.name}\nEmail: ${feedbackInput.email}\n\nMessage:\n${feedbackInput.message}\n\nBest regards,\n${feedbackInput.name}`;
     
     const mailtoUrl = `mailto:davidsonnj2009@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -293,6 +284,28 @@ export default function App() {
     setTimeout(() => {
       setFeedbackSuccess(false);
     }, 4500);
+  };
+
+  // Local comments submission (Dialogue Ledger)
+  const handleCommentSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!commentInput.name || !commentInput.message) return;
+
+    const newComment: guestFeedback = {
+      id: "comment-" + Date.now(),
+      name: commentInput.name,
+      email: "Verified Client",
+      message: commentInput.message,
+      createdAt: "Just now",
+      likes: 0
+    };
+
+    setFeedbacks([newComment, ...feedbacks]);
+    setCommentInput({ name: "", message: "" });
+    setCommentSuccess(true);
+    setTimeout(() => {
+      setCommentSuccess(false);
+    }, 3000);
   };
 
   const likeFeedback = (id: string) => {
@@ -789,7 +802,7 @@ export default function App() {
             "Hola! Thank you so much for visiting our page. I hope you like to view our products. Here you could find
             rare, exotic and exclusive flavours of candies that will please your cravings for sweets. If you want any
             suggestions, complaints or request, feel free to contact us and state your problems and we're pretty sure we
-            will do our best to provide you further services or returns. Do follow our <a href="https://instagram.com/_candelisse_off" target="_blank" rel="noreferrer" className="text-primary hover:underline font-semibold">Instagram page</a> for more updates.
+            will do our best to provide you further services or returns. Do follow our <a href="https://www.instagram.com/_candelisee_off?igsh=Z3JkcHBtbXdybzQ4" target="_blank" rel="noreferrer" className="text-primary hover:underline font-semibold">Instagram page</a> for more updates.
             Thank you once again."
           </p>
 
@@ -841,12 +854,12 @@ export default function App() {
                 <div>
                   <p className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Social Platform</p>
                   <a
-                    href="https://instagram.com/_candelisse_off"
+                    href="https://www.instagram.com/_candelisee_off?igsh=Z3JkcHBtbXdybzQ4"
                     target="_blank"
                     rel="noreferrer"
                     className="text-base sm:text-lg text-primary hover:underline hover:text-primary-fixed block transition-colors font-semibold"
                   >
-                    @_candelisse_off
+                    @_candelisee_off
                   </a>
                 </div>
               </div>
@@ -861,7 +874,43 @@ export default function App() {
                 <span className="text-[10px] font-mono text-gray-500">Persisted locally</span>
               </div>
 
-              <div className="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+              {/* Viewers Comment Submission Box */}
+              <form onSubmit={handleCommentSubmit} className="bg-[#1b1c1c] border border-outline/15 p-4 rounded-sm space-y-3 shadow-inner">
+                <p className="text-[10px] font-mono text-[#d0c5af] uppercase tracking-wider">Share your thoughts &amp; feedback below</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <input
+                    required
+                    type="text"
+                    placeholder="Your Name"
+                    value={commentInput.name}
+                    onChange={(e) => setCommentInput({ ...commentInput, name: e.target.value })}
+                    className="bg-[#121414] border border-outline/25 focus:border-primary text-xs text-white p-2.5 rounded-sm focus:outline-none placeholder-gray-600 font-sans transition-all"
+                  />
+                  <input
+                    required
+                    type="text"
+                    placeholder="Type your comment here..."
+                    value={commentInput.message}
+                    onChange={(e) => setCommentInput({ ...commentInput, message: e.target.value })}
+                    className="bg-[#121414] border border-outline/25 focus:border-primary text-xs text-white p-2.5 rounded-sm focus:outline-none placeholder-gray-600 font-sans transition-all"
+                  />
+                </div>
+                <div className="flex justify-between items-center pt-1">
+                  {commentSuccess ? (
+                    <span className="text-[9px] font-mono text-green-400 font-medium">✓ Comment posted successfully!</span>
+                  ) : (
+                    <span className="text-[9px] font-mono text-gray-500">Updates live instantly</span>
+                  )}
+                  <button
+                    type="submit"
+                    className="bg-primary/10 hover:bg-primary hover:text-[#241a00] border border-primary/20 text-primary text-[10px] font-mono tracking-wider font-bold uppercase px-3.5 py-1.5 rounded-sm transition-all duration-300 cursor-pointer active:scale-95"
+                  >
+                    Post Comment
+                  </button>
+                </div>
+              </form>
+
+              <div className="space-y-4 max-h-[220px] overflow-y-auto pr-2 custom-scrollbar">
                 <AnimatePresence initial={false}>
                   {feedbacks.map((item) => (
                     <motion.div
@@ -961,7 +1010,7 @@ export default function App() {
                   className="p-3 bg-primary/10 border border-primary/20 rounded text-xs text-primary flex items-center space-x-2"
                 >
                   <Check className="w-4 h-4 shrink-0" />
-                  <span>Submission successful. Your entry has been recorded in our ledger! Thank you again.</span>
+                  <span>Redirecting to your mail client to send directly to davidsonnj2009@gmail.com! Thank you.</span>
                 </motion.div>
               )}
 
@@ -1014,99 +1063,115 @@ export default function App() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-3xl bg-[#1b1c1c] border border-outline/20 p-6 md:p-8 rounded-lg overflow-hidden shadow-2xl z-20 flex flex-col md:flex-row gap-8 max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-3xl bg-[#1b1c1c] border border-outline/20 rounded-lg overflow-hidden shadow-2xl z-20 flex flex-col max-h-[90vh]"
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-1"
-                aria-label="Close details"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {/* Left Column: Visual representation */}
-              <div className="w-full md:w-1/2 flex items-center justify-center bg-[#121414] border border-outline/10 aspect-square md:aspect-auto md:min-h-[300px] rounded-md overflow-hidden relative">
-                <img
-                  alt={selectedProduct.name}
-                  className="w-full h-full object-cover select-none"
-                  src={selectedProduct.image}
-                  referrerPolicy="no-referrer"
-                />
-                
-                <span className="absolute top-3 left-3 bg-black/70 px-3 py-1 font-mono text-[9px] text-[#ffe088] border border-primary/20 tracking-wider uppercase rounded">
-                  {selectedProduct.type === 'obsidian' ? 'Matte Lacquer' : selectedProduct.type === 'collection' ? 'Collection' : selectedProduct.type === 'flavor' ? 'Obsidian-Exclusive' : 'Individual Asset'}
-                </span>
+              {/* Float Close Button - Static relative to outer card container, meaning it stays fixed on both desktop and mobile! */}
+              <div className="absolute top-4 right-4 z-[60]">
+                <button
+                  onClick={() => setSelectedProduct(null)}
+                  className="bg-black/70 hover:bg-black/90 text-gray-300 hover:text-white p-2.5 rounded-full backdrop-blur-md border border-white/10 transition-all shadow-lg flex items-center justify-center cursor-pointer active:scale-95 animate-fade-in"
+                  aria-label="Close details"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
 
-              {/* Right Column: Descriptions & Actions */}
-              <div className="w-full md:w-1/2 flex flex-col justify-between py-1 space-y-6">
-                <div>
-                  <h3 className="font-serif text-2xl sm:text-3xl text-primary leading-tight">
-                    {selectedProduct.name}
-                  </h3>
+              {/* Scrollable Contents Container */}
+              <div className="w-full h-full overflow-y-auto p-6 md:p-8 flex flex-col md:flex-row gap-8">
+                {/* Left Column: Visual representation */}
+                <div className="w-full md:w-1/2 flex items-center justify-center bg-[#121414] border border-outline/10 aspect-square md:aspect-auto md:min-h-[300px] rounded-md overflow-hidden relative shrink-0">
+                  <img
+                    alt={selectedProduct.name}
+                    className="w-full h-full object-cover select-none"
+                    src={selectedProduct.image}
+                    referrerPolicy="no-referrer"
+                  />
                   
-                  {selectedProduct.type !== 'flavor' ? (
-                    <div className="flex items-center gap-3 mt-2">
-                      <span className="text-xl font-semibold text-white font-mono">
-                        {selectedProduct.type === 'treasure' ? `₹${selectedProduct.price}` : `Rs. ${selectedProduct.price}`}
-                      </span>
-                      <span className="text-xs text-gray-500 font-mono">/ {selectedProduct.type === 'treasure' ? 'piece' : 'box'}</span>
-                    </div>
-                  ) : (
-                    <div className="mt-2 text-primary font-mono text-xs font-semibold tracking-wider uppercase">
-                      Exclusive Obsidian Blend
-                    </div>
-                  )}
-
-                  <p className="text-sm text-gray-300 font-sans leading-relaxed mt-4">
-                    {selectedProduct.detailDescription || selectedProduct.description}
-                  </p>
-
-                  {/* Attributes badge tags */}
-                  {selectedProduct.attributes && (
-                    <div className="mt-5 space-y-2">
-                      <p className="text-[10px] font-mono uppercase tracking-wider text-gray-500">Premium Specifications</p>
-                      <div className="flex flex-wrap gap-2">
-                        {selectedProduct.attributes.map((tag) => (
-                          <span key={tag} className="text-[10px] font-mono bg-primary/5 text-primary border border-primary/20 px-2.5 py-1 rounded">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  <span className="absolute top-3 left-3 bg-black/70 px-3 py-1 font-mono text-[9px] text-[#ffe088] border border-primary/20 tracking-wider uppercase rounded">
+                    {selectedProduct.type === 'obsidian' ? 'Matte Lacquer' : selectedProduct.type === 'collection' ? 'Collection' : selectedProduct.type === 'flavor' ? 'Obsidian-Exclusive' : 'Individual Asset'}
+                  </span>
                 </div>
 
-                <div className="space-y-3 pt-4 border-t border-outline/10">
-                  {selectedProduct.type === 'flavor' ? (
+                {/* Right Column: Descriptions & Actions */}
+                <div className="w-full md:w-1/2 flex flex-col justify-between py-1 space-y-6">
+                  <div>
+                    <h3 className="font-serif text-2xl sm:text-3xl text-primary leading-tight pr-8">
+                      {selectedProduct.name}
+                    </h3>
+                    
+                    {selectedProduct.type !== 'flavor' ? (
+                      <div className="flex items-center gap-3 mt-2">
+                        <span className="text-xl font-semibold text-white font-mono">
+                          {selectedProduct.type === 'treasure' ? `₹${selectedProduct.price}` : `Rs. ${selectedProduct.price}`}
+                        </span>
+                        <span className="text-xs text-gray-500 font-mono">/ {selectedProduct.type === 'treasure' ? 'piece' : 'box'}</span>
+                      </div>
+                    ) : (
+                      <div className="mt-2 text-primary font-mono text-xs font-semibold tracking-wider uppercase">
+                        Exclusive Obsidian Blend
+                      </div>
+                    )}
+
+                    <p className="text-sm text-gray-300 font-sans leading-relaxed mt-4">
+                      {selectedProduct.detailDescription || selectedProduct.description}
+                    </p>
+
+                    {/* Attributes badge tags */}
+                    {selectedProduct.attributes && (
+                      <div className="mt-5 space-y-2">
+                        <p className="text-[10px] font-mono uppercase tracking-wider text-gray-500">Premium Specifications</p>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProduct.attributes.map((tag) => (
+                            <span key={tag} className="text-[10px] font-mono bg-primary/5 text-primary border border-primary/20 px-2.5 py-1 rounded">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-3 pt-4 border-t border-outline/10">
+                    {selectedProduct.type === 'flavor' ? (
+                      <button
+                        onClick={() => {
+                          setSelectedProduct(OBSIDIAN_PRODUCT);
+                        }}
+                        className="w-full bg-primary text-[#241a00] hover:bg-primary-fixed py-3 text-xs font-mono font-bold tracking-widest uppercase rounded-sm transition-all text-center flex items-center justify-center space-x-2 cursor-pointer"
+                      >
+                        <Sparkles className="w-4 h-4 animate-pulse" />
+                        <span>Explore The Obsidian Selection</span>
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          addToCart(selectedProduct, 1);
+                          setSelectedProduct(null);
+                        }}
+                        className="w-full bg-primary text-[#241a00] hover:bg-primary-fixed py-3 text-xs font-mono font-bold tracking-widest uppercase rounded-sm transition-all text-center flex items-center justify-center space-x-2 cursor-pointer"
+                      >
+                        <ShoppingBag className="w-4 h-4" />
+                        <span>Secure Packaging inside Bag</span>
+                      </button>
+                    )}
+
+                    {/* Mobile Escape / Back Button */}
                     <button
                       onClick={() => {
-                        setSelectedProduct(OBSIDIAN_PRODUCT);
-                      }}
-                      className="w-full bg-primary text-[#241a00] hover:bg-primary-fixed py-3 text-xs font-mono font-bold tracking-widest uppercase rounded-sm transition-all text-center flex items-center justify-center space-x-2"
-                    >
-                      <Sparkles className="w-4 h-4 animate-pulse" />
-                      <span>Explore The Obsidian Selection</span>
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => {
-                        addToCart(selectedProduct, 1);
                         setSelectedProduct(null);
                       }}
-                      className="w-full bg-primary text-[#241a00] hover:bg-primary-fixed py-3 text-xs font-mono font-bold tracking-widest uppercase rounded-sm transition-all text-center flex items-center justify-center space-x-2"
+                      className="w-full border border-outline/30 text-gray-400 hover:border-primary hover:text-primary py-3 text-xs font-mono font-bold tracking-widest uppercase rounded-sm transition-all text-center flex items-center justify-center space-x-2 md:hidden cursor-pointer active:scale-95"
                     >
-                      <ShoppingBag className="w-4 h-4" />
-                      <span>Secure Packaging inside Bag</span>
+                      <ChevronLeft className="w-4 h-4" />
+                      <span>Return to Selection</span>
                     </button>
-                  )}
 
-                  <p className="text-[10px] text-gray-500 font-mono text-center">
-                    {selectedProduct.type === 'flavor' 
-                      ? "This unique formulation is hand-packed strictly into our luxurious black-colored cardboard configuration." 
-                      : "All prices are fully custom tax inclusive. Secure distribution guaranteed."}
-                  </p>
+                    <p className="text-[10px] text-gray-500 font-mono text-center">
+                      {selectedProduct.type === 'flavor' 
+                        ? "This unique formulation is hand-packed strictly into our luxurious black-colored presentation packaging." 
+                        : "All prices are fully custom tax inclusive. Secure distribution guaranteed."}
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
