@@ -68,7 +68,7 @@ export default function App() {
     {
       id: "init-1",
       name: "Sienna Moretti",
-      email: "sienna@luxuryconfections.it",
+      email: "sien@luxuryconfections.it",
       message: "The Berry Satin is unlike anything I have ever eaten. The transition from the delicate outer shell to the wild strawberry infusion is brilliant. Truly an artistic masterpiece!",
       createdAt: "Today at 3:15 PM",
       likes: 12
